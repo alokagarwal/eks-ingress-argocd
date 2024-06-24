@@ -14,10 +14,12 @@
 terraform {
   required_version = ">= 1.3.2"
   backend "s3" {
-    bucket         = "terraform-state-files"
-    key            = "statefiles/eks_spike_cluster/terraform.tfstate"
-    region         = "us-east-1"
-    dynamodb_table = "eks-spike-terraform-state-lock"
+    bucket  = "devopsy-terraform"
+    key     = "eks_ingress_argocd/terraform.tfstate"
+    region  = "us-east-1"
+    encrypt = true
+    //dynamodb_table = "eks-spike-terraform-state-lock"
+    profile = "techwithalok"
   }
   required_providers {
     aws = {

@@ -9,20 +9,21 @@ variable "cluster_name" {
 variable "vpc_name" {
   type        = string
   description = "VPC Name"
-  default     = "eks-vpc"
+  default     = "default"
 }
 
 variable "vpc_id" {
   type        = string
   description = "VPC Id"
-  default     = "vpc-05e88fbb4861fd9d6"
+  //default     = "vpc-3bd2ef5e"
+  default = "vpc-077dfc31312e07378"
 }
 
-variable "vpc_cidr_block" {
-  type        = string
-  description = "value of the CIDR block to use for the VPC"
-  default     = "172.16.0.0/16"
-}
+# variable "vpc_cidr_block" {
+#   type        = string
+#   description = "value of the CIDR block to use for the VPC"
+#   default     = "172.31.0.0/16"
+# }
 
 variable "private_subnet_ids" {
   type        = list(any)
@@ -44,3 +45,25 @@ variable "additional_tags" {
   type        = map(string)
 }
 
+variable "aws_profile" {
+  type    = string
+  default = "techwithalok"
+}
+
+
+variable "argocd_chart_name" {
+  type    = string
+  default = "argo-cd"
+}
+
+
+variable "argocd_chart_version" {
+  type    = string
+  default = "7.2.1"
+}
+
+
+variable "argocd_k8s_namespace" {
+  type    = string
+  default = "argocd"
+}
